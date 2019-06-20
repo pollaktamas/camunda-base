@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  oracledb:
+    image: carloscastillo/rgt-oracle-xe-11g
+    volumes:
+      - "oraclexedbdata:/u01/app/oracle"
+    environment:
+      - SCHEMAS=poc_user
+    ports:
+      - "9090:8080" # Apex
+      - "1521:1521" # Database
+
+volumes:
+  oraclexedbdata:

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_0nwn0l8" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="2.2.4">
+  <bpmn:process id="tesz1" name="TESZ1" isExecutable="true">
+    <bpmn:startEvent id="start" name="TESZ1 indítás">
+      <bpmn:outgoing>SequenceFlow_173e6av</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_07qcc50" name="TESZ1 rögzítés indítás" camunda:formKey="tesz1_rogzites_inditas" camunda:assignee="${feladatService.findElhelyezesiUgyintezo()}">
+      <bpmn:incoming>SequenceFlow_173e6av</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0oad362</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_173e6av" sourceRef="start" targetRef="Task_07qcc50" />
+    <bpmn:endEvent id="end">
+      <bpmn:incoming>SequenceFlow_0oad362</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0oad362" sourceRef="Task_07qcc50" targetRef="end" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="tesz1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="start">
+        <dc:Bounds x="195" y="253" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="178" y="296" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_11b5axc_di" bpmnElement="Task_07qcc50">
+        <dc:Bounds x="336" y="231" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_173e6av_di" bpmnElement="SequenceFlow_173e6av">
+        <di:waypoint x="231" y="271" />
+        <di:waypoint x="336" y="271" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_0hkatrg_di" bpmnElement="end">
+        <dc:Bounds x="537" y="253" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0oad362_di" bpmnElement="SequenceFlow_0oad362">
+        <di:waypoint x="436" y="271" />
+        <di:waypoint x="537" y="271" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

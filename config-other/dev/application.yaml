@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+logging:
+  path: /var/log/poc-server
+  level:
+    ROOT: info
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    hu.poc: trace
+
+spring:
+  profiles:
+    active: dev
+  liquibase:
+    enabled: true
+    contexts: dev
+
+datasource:
+  db-application:
+    jdbc-url: jdbc:oracle:thin:@localhost:1521:xe
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: poc_user
+    password: poc_user
+
+camunda.bpm:
+  admin-user:
+    id: admin
+    password: admin
+    firstName: Admin
+  filter:
+    create: All tasks
+

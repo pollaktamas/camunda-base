@@ -1,0 +1,28 @@
+
+spring:
+  profiles:
+    active: dev
+  session:
+    store-type: none
+  jpa:
+    open-in-view: false
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: validate
+    properties:
+      org:
+        hibernate:
+          envers:
+            revision_field_name: REV_ID
+            revision_type_field_name: REV_TYPE
+
+  liquibase:
+    enabled: false
+    change-log: classpath:/db/changelogs/root-changelog.xml
+    database-change-log-table: DATABASECHANGELOG
+    database-change-log-lock-table: DATABASECHANGELOGLOCK
+
+camunda:
+  bpm:
+    database:
+      jdbc-batch-processing: false
